@@ -1,0 +1,24 @@
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to Modern Blog</h1>
+        <p>Discover amazing stories and share your thoughts</p>
+    </div>
+</section>
+
+<section class="featured-posts">
+    <h2>Featured Posts</h2>
+    <div class="posts-grid">
+        <% featuredPosts.forEach(post => { %>
+            <article class="post-card">
+                <h3><a href="/post?id=<%= post.id %>"><%= post.title %></a></h3>
+                <p class="post-meta">
+                    By <%= post.author %> • 
+                    <%= formatDate(new Date(post.createdAt), 'MMM d, yyyy') %> • 
+                    <%= post.readingTime %> min read
+                </p>
+                <p class="post-excerpt"><%= post.excerpt %></p>
+                <a href="/post?id=<%= post.id %>" class="read-more">Read More</a>
+            </article>
+        <% }); %>
+    </div>
+</section>

@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "hello",
+      "content": "hello",
+      "excerpt": "hello...",
+      "author": "hello",
+      "createdAt": "2025-02-20T16:14:29.688Z",
+      "readingTime": 1
+    },
+    {
+      "id": 2,
+      "title": "Today",
+      "content": "today's date is 21st February , 2025",
+      "excerpt": "today's date is 21st February , 2025...",
+      "author": "Ankit",
+      "createdAt": "2025-02-21T03:21:46.603Z",
+      "readingTime": 1
+    },
+    {
+      "id": 3,
+      "title": "Book",
+      "content": "very bloody shit",
+      "excerpt": "very bloody shit...",
+      "author": "Ankit",
+      "createdAt": "2025-02-21T04:05:53.254Z",
+      "readingTime": 1
+    },
+    {
+      "id": 4,
+      "title": "Posts check",
+      "content": "just to check working",
+      "excerpt": "just to check working...",
+      "author": "Ankit",
+      "createdAt": "2025-02-22T10:42:44.141Z",
+      "readingTime": 1
+    }
+  ]
+}

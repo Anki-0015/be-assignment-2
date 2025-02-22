@@ -1,0 +1,22 @@
+<section class="search-results">
+    <h1>Search Results for "<%= query %>"</h1>
+    
+    <% if (posts.length === 0) { %>
+        <p class="no-results">No posts found matching your search.</p>
+    <% } else { %>
+        <div class="posts-grid">
+            <% posts.forEach(post => { %>
+                <article class="post-card">
+                    <h2><a href="/post?id=<%= post.id %>"><%= post.title %></a></h2>
+                    <p class="post-meta">
+                        By <%= post.author %> • 
+                        <%= formatDate(new Date(post.createdAt), 'MMM d, yyyy') %> • 
+                        <%= post.readingTime %> min read
+                    </p>
+                    <p class="post-excerpt"><%= post.excerpt %></p>
+                    <a href="/post?id=<%= post.id %>" class="read-more">Read More</a>
+                </article>
+            <% }); %>
+        </div>
+    <% } %>
+</section>

@@ -1,0 +1,35 @@
+<section class="posts-section">
+    <h1>All Blog Posts</h1>
+    
+    <div class="posts-grid">
+        <% posts.forEach(post => { %>
+            <article class="post-card">
+                <h2><a href="/post?id=<%= post.id %>"><%= post.title %></a></h2>
+                <p class="post-meta">
+                    By <%= post.author %> • 
+                    <%= formatDate(new Date(post.createdAt), 'MMM d, yyyy') %> • 
+                    <%= post.readingTime %> min read
+                </p>
+                <p class="post-excerpt"><%= post.excerpt %></p>
+                <a href="/post?id=<%= post.id %>" class="read-more">Read More</a>
+            </article>
+        <% }); %>
+    </div>
+
+    <div class="pagination">
+        <% if (currentPage > 1) { %>
+            <a href="/posts?page=<%= currentPage - 1 %>" class="page-link">&laquo; Previous</a>
+        <% } %>
+        
+        <% for(let i = 1; i <= totalPages; i++) { %>
+            <a href="/posts?page=<%= i %>" 
+               class="page-link <%= currentPage === i ? 'active' : '' %>">
+                <%= i %>
+            </a>
+        <% } %>
+        
+        <% if (currentPage < totalPages) { %>
+            <a href="/posts?page=<%= currentPage + 1 %>" class="page-link">Next &raquo;</a>
+        <% } %>
+    </div>
+</section>

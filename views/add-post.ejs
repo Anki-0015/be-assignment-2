@@ -1,0 +1,54 @@
+<section class="add-post">
+    <h1>Create New Post</h1>
+    
+    <form action="/add-post" method="POST" class="post-form">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" required>
+        </div>
+
+        <div class="form-group">
+            <label for="excerpt">Excerpt (optional)</label>
+            <textarea id="excerpt" name="excerpt" rows="2"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="content">Content (Markdown supported)</label>
+            <textarea id="content" name="content" rows="10" required></textarea>
+        </div>
+
+        <div class="preview-section">
+            <h3>Preview</h3>
+            <div id="preview-content"></div>
+        </div>
+
+        <button type="submit" class="submit-btn">Publish Post</button>
+    </form>
+</section>
+
+<script>
+const contentTextarea = document.getElementById('content');
+const previewContent = document.getElementById('preview-content');
+
+contentTextarea.addEventListener('input', async () => {
+    try {
+        const response = await fetch('/preview-post', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ content: contentTextarea.value })
+        });
+        
+        const data = await response.json();
+        previewContent.innerHTML = data.preview;
+    } catch (error) {
+        console.error('Preview failed:', error);
+    }
+});
+</script>

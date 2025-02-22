@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> | Modern Blog</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="/">Modern Blog</a>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/posts" class="nav-link">All Posts</a>
+                <a href="/add-post" class="nav-link">Add Post</a>
+            </div>
+            <form action="/search" method="GET" class="search-form">
+                <input type="search" name="q" placeholder="Search posts..." required>
+                <button type="submit">Search</button>
+            </form>
+        </nav>
+    </header>
+
+    <main class="container">
+        <%- body %>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; <%= new Date().getFullYear() %> Modern Blog. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
